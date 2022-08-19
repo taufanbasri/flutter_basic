@@ -4,38 +4,45 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int number = 0;
+
+  void tambahBilangan() {
+    setState(() {
+      number++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(
-            title: const Text("Container Widget"),
+        appBar: AppBar(
+          title: const Text("Statefull Widget"),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                number.toString(),
+                style: TextStyle(fontSize: 10 + number.toDouble()),
+              ),
+              RaisedButton(
+                onPressed: tambahBilangan,
+                child: const Text("Add fontSize"),
+              )
+            ],
           ),
-          body: Container(
-            color: Colors.amber,
-            // margin: const EdgeInsets.all(10),
-            margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-            // padding: const EdgeInsets.all(10),
-            padding: const EdgeInsets.only(bottom: 15),
-            child: Container(
-              // color: Colors.indigo,
-              margin: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  gradient: const LinearGradient(
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
-                      colors: <Color>[
-                        Colors.amber,
-                        Colors.blue,
-                        Colors.indigo,
-                        Colors.deepPurple
-                      ])),
-            ),
-          )),
+        ),
+      ),
     );
   }
 }

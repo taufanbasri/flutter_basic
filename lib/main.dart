@@ -12,149 +12,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Stack Widget"),
+          title: const Text("Image Widget"),
         ),
-        body: Stack(
-          children: <Widget>[
-            Column(
-              children: <Widget>[
-                Flexible(
-                    flex: 1,
-                    child: Row(
-                      children: <Widget>[
-                        Flexible(
-                            flex: 1,
-                            child: Container(
-                              color: Colors.white,
-                            )),
-                        Flexible(
-                            flex: 1,
-                            child: Container(
-                              color: Colors.black12,
-                            ))
-                      ],
-                    )),
-                Flexible(
-                    flex: 1,
-                    child: Row(
-                      children: <Widget>[
-                        Flexible(
-                            flex: 1,
-                            child: Container(
-                              color: Colors.black12,
-                            )),
-                        Flexible(
-                            flex: 1,
-                            child: Container(
-                              color: Colors.white,
-                            )),
-                      ],
-                    )),
-              ],
+        body: Center(
+          child: Container(
+            color: Colors.black,
+            width: 200,
+            height: 200,
+            padding: EdgeInsets.all(3),
+            child: const Image(
+              // image: NetworkImage("https://images.unsplash.com/photo-1657299156653-d3c0147ba3ee"),
+              image: AssetImage('images/unsplash.jpg'),
+              fit: BoxFit.cover,
             ),
-            ListView(
-              children: <Widget>[
-                Column(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.all(10),
-                      child: Text(
-                        "Text ini ada dilapisan tengah dari Stack",
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(10),
-                      child: Text(
-                        "Text ini ada dilapisan tengah dari Stack",
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.all(10),
-                      child: Text(
-                        "Text ini ada dilapisan tengah dari Stack",
-                        style: TextStyle(fontSize: 30),
-                      ),
-                    ),
-                    Text(
-                      "Text ini ada dilapisan tengah dari Stack",
-                      style: TextStyle(fontSize: 30),
-                    ),
-                    Text(
-                      "Text ini ada dilapisan tengah dari Stack",
-                      style: TextStyle(fontSize: 30),
-                    ),
-                    Text(
-                      "Text ini ada dilapisan tengah dari Stack",
-                      style: TextStyle(fontSize: 30),
-                    ),
-                    Text(
-                      "Text ini ada dilapisan tengah dari Stack",
-                      style: TextStyle(fontSize: 30),
-                    ),
-                    Text(
-                      "Text ini ada dilapisan tengah dari Stack",
-                      style: TextStyle(fontSize: 30),
-                    ),
-                    Text(
-                      "Text ini ada dilapisan tengah dari Stack",
-                      style: TextStyle(fontSize: 30),
-                    ),
-                    Text(
-                      "Text ini ada dilapisan tengah dari Stack",
-                      style: TextStyle(fontSize: 30),
-                    ),
-                    Text(
-                      "Text ini ada dilapisan tengah dari Stack",
-                      style: TextStyle(fontSize: 30),
-                    ),
-                    Text(
-                      "Text ini ada dilapisan tengah dari Stack",
-                      style: TextStyle(fontSize: 30),
-                    ),
-                    Text(
-                      "Text ini ada dilapisan tengah dari Stack",
-                      style: TextStyle(fontSize: 30),
-                    ),
-                    Text(
-                      "Text ini ada dilapisan tengah dari Stack",
-                      style: TextStyle(fontSize: 30),
-                    ),
-                    Text(
-                      "Text ini ada dilapisan tengah dari Stack",
-                      style: TextStyle(fontSize: 30),
-                    ),
-                    Text(
-                      "Text ini ada dilapisan tengah dari Stack",
-                      style: TextStyle(fontSize: 30),
-                    ),
-                    Text(
-                      "Text ini ada dilapisan tengah dari Stack",
-                      style: TextStyle(fontSize: 30),
-                    ),
-                    Text(
-                      "Text ini ada dilapisan tengah dari Stack",
-                      style: TextStyle(fontSize: 30),
-                    ),
-                    Text(
-                      "Text ini ada dilapisan tengah dari Stack",
-                      style: TextStyle(fontSize: 30),
-                    ),
-                  ],
-                )
-              ],
-            ),
-            Align(
-              // alignment: Alignment.bottomRight,
-              alignment: Alignment(-1, -1),
-              child: RaisedButton(
-                child: Text("My Button"),
-                color: Colors.amber,
-                onPressed: () {},
-              ),
-            )
-          ],
+          ),
         ),
       ),
     );

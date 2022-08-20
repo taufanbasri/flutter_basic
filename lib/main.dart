@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,50 +14,29 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Widget> widgets = [];
-
-  int counter = 1;
+  Random random = Random();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text("List View"),
-        ),
-        body: ListView(children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              RaisedButton(
-                child: const Text('Tambah Data'),
-                onPressed: () {
-                  setState(() {
-                    widgets.add(Text(
-                      "Data ke-$counter",
-                      style: const TextStyle(fontSize: 35),
-                    ));
-                    counter++;
-                  });
-                },
-              ),
-              RaisedButton(
-                child: const Text('Hapus Data'),
-                onPressed: () {
-                  setState(() {
-                    widgets.removeLast();
-                    counter--;
-                  });
-                },
-              ),
-            ],
+          appBar: AppBar(
+            title: const Text("Animated Container"),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: widgets,
-          )
-        ]),
-      ),
+          body: Center(
+            child: GestureDetector(
+              onTap: () {
+                setState(() {});
+              },
+              child: AnimatedContainer(
+                color: Color.fromARGB(255, random.nextInt(256),
+                    random.nextInt(256), random.nextInt(256)),
+                duration: const Duration(seconds: 1),
+                width: 50.0 + random.nextInt(101),
+                height: 50.0 + random.nextInt(101),
+              ),
+            ),
+          )),
     );
   }
 }

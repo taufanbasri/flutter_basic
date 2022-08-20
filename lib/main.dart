@@ -12,31 +12,49 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String message = "Ini text";
+  List<Widget> widgets = [];
+
+  int counter = 1;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Anonymus Method"),
+          title: const Text("List View"),
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(message),
+        body: ListView(children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
               RaisedButton(
+                child: const Text('Tambah Data'),
                 onPressed: () {
                   setState(() {
-                    message = "Tombol sudah ditekan";
+                    widgets.add(Text(
+                      "Data ke-$counter",
+                      style: const TextStyle(fontSize: 35),
+                    ));
+                    counter++;
                   });
                 },
-                child: const Text("Push Me"),
-              )
+              ),
+              RaisedButton(
+                child: const Text('Hapus Data'),
+                onPressed: () {
+                  setState(() {
+                    widgets.removeLast();
+                    counter--;
+                  });
+                },
+              ),
             ],
           ),
-        ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: widgets,
+          )
+        ]),
       ),
     );
   }

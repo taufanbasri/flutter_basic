@@ -145,10 +145,14 @@ class MyApp extends StatelessWidget {
                 )
               ],
             ),
-            RaisedButton(
-              child: Text("My Button"),
-              color: Colors.amber,
-              onPressed: () {},
+            Align(
+              // alignment: Alignment.bottomRight,
+              alignment: Alignment(-1, -1),
+              child: RaisedButton(
+                child: Text("My Button"),
+                color: Colors.amber,
+                onPressed: () {},
+              ),
             )
           ],
         ),

@@ -24,14 +24,14 @@ class SecondPage extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            RaisedButton(
-              onPressed: () async {
-                String result = await Get.to<String>(() => ThirdPage());
-
-                print("===> $result");
-              },
-              child: const Text("Go to Third Page"),
-            ),
+            Column(
+              children:
+                  (Get.arguments as List<String>).map((e) => Text(e)).toList() +
+                      [
+                        Text(Get.parameters['name']),
+                        Text(Get.parameters['from']),
+                      ],
+            )
           ],
         ),
       ),

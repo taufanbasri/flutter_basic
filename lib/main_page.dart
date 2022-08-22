@@ -14,7 +14,8 @@ class MainPage extends StatelessWidget {
       body: Center(
           child: RaisedButton(
         onPressed: () {
-          Get.toNamed('/second');
+          Get.toNamed('/second?name=Taufan Prasetyo&from=Indonesia',
+              arguments: ['Hello', 'World']);
         },
         child: const Text("Go To Second Page"),
       )),

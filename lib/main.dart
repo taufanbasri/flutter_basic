@@ -26,10 +26,32 @@ class MainPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Media Query"),
         ),
-        body: Container(
-          color: Colors.deepPurple[400],
-          width: MediaQuery.of(context).size.width / 3,
-          height: MediaQuery.of(context).size.height / 2,
-        ));
+        body: (MediaQuery.of(context).orientation == Orientation.portrait)
+            ? Column(
+                children: generateContainers,
+              )
+            : Row(
+                children: generateContainers,
+              ));
+  }
+
+  List<Widget> get generateContainers {
+    return [
+      Container(
+        color: Colors.red,
+        width: 100,
+        height: 100,
+      ),
+      Container(
+        color: Colors.green,
+        width: 100,
+        height: 100,
+      ),
+      Container(
+        color: Colors.blue,
+        width: 100,
+        height: 100,
+      ),
+    ];
   }
 }

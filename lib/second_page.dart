@@ -25,8 +25,10 @@ class SecondPage extends StatelessWidget {
               height: 10,
             ),
             RaisedButton(
-              onPressed: () {
-                Get.to(const ThirdPage());
+              onPressed: () async {
+                String result = await Get.to<String>(() => const ThirdPage());
+
+                print("===> $result");
               },
               child: const Text("Go to Third Page"),
             ),

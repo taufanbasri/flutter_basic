@@ -17,7 +17,7 @@ class ThirdPage extends StatelessWidget {
           children: [
             RaisedButton(
               onPressed: () {
-                Get.back();
+                Get.back(result: "Ini nilai dari page 3");
               },
               child: const Text("Back to Second Page"),
             ),
@@ -26,7 +26,7 @@ class ThirdPage extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: () {
-                Get.offAll(const MainPage());
+                Get.offAll(() => const MainPage());
               },
               child: const Text("Go to Main Page"),
             ),

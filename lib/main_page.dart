@@ -14,7 +14,7 @@ class MainPage extends StatelessWidget {
       body: Center(
           child: RaisedButton(
         onPressed: () {
-          Get.to(const SecondPage());
+          Get.to(() => const SecondPage());
         },
         child: const Text("Go To Second Page"),
       )),

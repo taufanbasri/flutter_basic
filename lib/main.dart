@@ -25,6 +25,15 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               TextField(
+                decoration: InputDecoration(
+                    icon: const Icon(Icons.adb),
+                    prefixIcon: const Icon(Icons.person),
+                    prefixText: "Name: ",
+                    prefixStyle: const TextStyle(
+                        color: Colors.blue, fontWeight: FontWeight.w500),
+                    hintText: "Fullname",
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10))),
                 maxLength: 6,
                 onChanged: (value) {
                   setState(() {});

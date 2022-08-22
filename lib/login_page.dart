@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basic/main_page.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
@@ -11,7 +10,7 @@ class LoginPage extends StatelessWidget {
       body: Center(
           child: RaisedButton(
         onPressed: () {
-          Get.off(const MainPage());
+          Get.offNamed('/main');
         },
         child: const Text("LOGIN"),
       )),

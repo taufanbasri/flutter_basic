@@ -26,7 +26,7 @@ class ThirdPage extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: () {
-                Get.offAll(() => const MainPage());
+                Get.offAll(() => MainPage());
               },
               child: const Text("Go to Main Page"),
             ),

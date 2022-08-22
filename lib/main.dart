@@ -13,53 +13,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return const MaterialApp(home: MainPage());
+  }
+}
+
+class MainPage extends StatelessWidget {
+  const MainPage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
         appBar: AppBar(
-          title: const Text("Flexible Layout"),
+          title: const Text("Media Query"),
         ),
-        body: Column(
-          children: [
-            Flexible(
-              flex: 1,
-              child: Row(
-                children: [
-                  Flexible(
-                      flex: 1,
-                      child: Container(
-                        margin: const EdgeInsets.all(5),
-                        color: Colors.red,
-                      )),
-                  Flexible(
-                      flex: 1,
-                      child: Container(
-                        margin: const EdgeInsets.all(5),
-                        color: Colors.green,
-                      )),
-                  Flexible(
-                      flex: 1,
-                      child: Container(
-                        margin: const EdgeInsets.all(5),
-                        color: Colors.purple,
-                      )),
-                ],
-              ),
-            ),
-            Flexible(
-                flex: 2,
-                child: Container(
-                  margin: const EdgeInsets.all(5),
-                  color: Colors.amber,
-                )),
-            Flexible(
-                flex: 1,
-                child: Container(
-                  margin: const EdgeInsets.all(5),
-                  color: Colors.blue,
-                ))
-          ],
-        ),
-      ),
-    );
+        body: Container(
+          color: Colors.deepPurple[400],
+          width: MediaQuery.of(context).size.width / 3,
+          height: MediaQuery.of(context).size.height / 2,
+        ));
   }
 }

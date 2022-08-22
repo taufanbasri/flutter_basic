@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic/main_page.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key key}) : super(key: key);
@@ -10,10 +11,7 @@ class LoginPage extends StatelessWidget {
       body: Center(
           child: RaisedButton(
         onPressed: () {
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) {
-            return const MainPage();
-          }));
+          Get.off(const MainPage());
         },
         child: const Text("LOGIN"),
       )),

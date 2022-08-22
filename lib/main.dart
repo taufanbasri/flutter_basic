@@ -54,6 +54,15 @@ class MainPage extends StatelessWidget {
                       colors: [Color(0xFFB226B2), Color(0xFFFF4891)],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter)),
+              child: const Center(
+                child: Text(
+                  "dribblee",
+                  style: TextStyle(
+                      fontFamily: "Pacifico",
+                      fontSize: 30,
+                      color: Colors.white),
+                ),
+              ),
             ),
           ),
         ],

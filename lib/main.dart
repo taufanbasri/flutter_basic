@@ -13,18 +13,53 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      initialRoute: '/',
-      getPages: [
-        GetPage(name: '/', page: () => const LoginPage()),
-        GetPage(name: '/main', page: () => const MainPage()),
-        GetPage(
-            name: '/second',
-            page: () => const SecondPage(),
-            transition: Transition.zoom,
-            transitionDuration: const Duration(milliseconds: 200)),
-      ],
-      debugShowCheckedModeBanner: false,
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("Flexible Layout"),
+        ),
+        body: Column(
+          children: [
+            Flexible(
+              flex: 1,
+              child: Row(
+                children: [
+                  Flexible(
+                      flex: 1,
+                      child: Container(
+                        margin: const EdgeInsets.all(5),
+                        color: Colors.red,
+                      )),
+                  Flexible(
+                      flex: 1,
+                      child: Container(
+                        margin: const EdgeInsets.all(5),
+                        color: Colors.green,
+                      )),
+                  Flexible(
+                      flex: 1,
+                      child: Container(
+                        margin: const EdgeInsets.all(5),
+                        color: Colors.purple,
+                      )),
+                ],
+              ),
+            ),
+            Flexible(
+                flex: 2,
+                child: Container(
+                  margin: const EdgeInsets.all(5),
+                  color: Colors.amber,
+                )),
+            Flexible(
+                flex: 1,
+                child: Container(
+                  margin: const EdgeInsets.all(5),
+                  color: Colors.blue,
+                ))
+          ],
+        ),
+      ),
     );
   }
 }

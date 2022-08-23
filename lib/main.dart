@@ -11,7 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(textTheme: GoogleFonts.srirachaTextTheme()),
+      theme: ThemeData(
+          textTheme: GoogleFonts.srirachaTextTheme()
+              .copyWith(bodyText1: GoogleFonts.modak())),
       home: const MainPage(),
     );
   }
@@ -37,10 +39,11 @@ class MainPage extends StatelessWidget {
               "I'll keep learning Flutter!",
               style: GoogleFonts.lato(color: fontcolor, fontSize: 25),
             ),
-            const Text(
-              "Hello World!",
-              style: TextStyle(color: fontcolor),
-            )
+            Text("Hello World!",
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1
+                    .copyWith(color: fontcolor, fontSize: 25))
           ],
         ),
       ),

@@ -10,77 +10,42 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: MainPage(),
-    );
-  }
-}
-
-class MainPage extends StatelessWidget {
-  const MainPage({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.lightBlue[50],
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: const Text(
-          "Hero Animation",
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
-      body: GestureDetector(
-        onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return const SecondPage();
-          }));
-        },
-        child: Hero(
-          tag: 'profile',
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(50),
-            child: Container(
-                width: 100,
-                height: 100,
-                child: const Image(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(
-                        "https://inikpop.com/wp-content/uploads/2022/05/Rose-thumbnail.png"))),
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 4,
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text("TabBar"),
+            bottom: const TabBar(tabs: <Widget>[
+              Tab(
+                icon: Icon(Icons.comment),
+                text: "Comments",
+              ),
+              Tab(
+                icon: Icon(Icons.person),
+              ),
+              Tab(
+                icon: Icon(Icons.person),
+              ),
+              Tab(
+                text: "News",
+              ),
+            ]),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class SecondPage extends StatelessWidget {
-  const SecondPage({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.pink[50],
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: const Text(
-          "Hero Animation",
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
-      body: Center(
-        child: Hero(
-          tag: 'profile',
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(100),
-            child: Container(
-                width: 200,
-                height: 200,
-                child: const Image(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(
-                        "https://inikpop.com/wp-content/uploads/2022/05/Rose-thumbnail.png"))),
-          ),
+          body: const TabBarView(children: [
+            Center(
+              child: Text("Tab1"),
+            ),
+            Center(
+              child: Text("Tab2"),
+            ),
+            Center(
+              child: Text("Tab3"),
+            ),
+            Center(
+              child: Text("Tab4"),
+            ),
+          ]),
         ),
       ),
     );

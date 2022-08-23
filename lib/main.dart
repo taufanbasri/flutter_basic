@@ -9,8 +9,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MainPage(),
+    return const MaterialApp(
+      home: const MainPage(),
     );
   }
 }
@@ -44,8 +44,8 @@ class MainPage extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: -getSmallDiameter(context) / 4,
-            top: -getSmallDiameter(context) / 4,
+            left: -getBigDiameter(context) / 4,
+            top: -getBigDiameter(context) / 4,
             child: Container(
               width: getBigDiameter(context),
               height: getBigDiameter(context),
@@ -161,9 +161,42 @@ class MainPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                      )
+                      ),
+                      FloatingActionButton(
+                        elevation: 0,
+                        mini: true,
+                        onPressed: () {},
+                        child: const Image(
+                            image: AssetImage("assets/facebook.png")),
+                      ),
+                      FloatingActionButton(
+                        elevation: 0,
+                        mini: true,
+                        onPressed: () {},
+                        child: const Image(
+                            image: AssetImage("assets/twitter.png")),
+                      ),
                     ],
                   ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(
+                      "DON'T HAVE AN ACCOUNT? ",
+                      style: TextStyle(
+                          fontSize: 11,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    Text(
+                      "SIGN UP",
+                      style: TextStyle(
+                          fontSize: 11,
+                          color: Color(0XFFFF4891),
+                          fontWeight: FontWeight.w700),
+                    ),
+                  ],
                 )
               ],
             ),

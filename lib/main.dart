@@ -11,43 +11,69 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: DefaultTabController(
-        length: 4,
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text("TabBar"),
-            bottom: const TabBar(tabs: <Widget>[
-              Tab(
-                icon: Icon(Icons.comment),
-                text: "Comments",
-              ),
-              Tab(
-                icon: Icon(Icons.person),
-              ),
-              Tab(
-                icon: Icon(Icons.person),
-              ),
-              Tab(
-                text: "News",
-              ),
-            ]),
+      home: MainPage(),
+    );
+  }
+}
+
+class MainPage extends StatefulWidget {
+  const MainPage({Key key}) : super(key: key);
+
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  Person selectedPerson;
+  List<Person> persons = [Person("Taufan"), Person("Evita")];
+
+  List<DropdownMenuItem> generatedItems(List<Person> persons) {
+    List<DropdownMenuItem> items = [];
+
+    for (var item in persons) {
+      items.add(DropdownMenuItem(
+        value: item,
+        child: Text(item.name),
+      ));
+    }
+
+    return items;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Dropdown Button"),
+      ),
+      body: Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.all(20),
+            child: DropdownButton(
+              isExpanded: true,
+              style: const TextStyle(fontSize: 20, color: Colors.purple),
+              value: selectedPerson,
+              items: generatedItems(persons),
+              onChanged: (value) {
+                setState(() {
+                  selectedPerson = value;
+                });
+              },
+            ),
           ),
-          body: const TabBarView(children: [
-            Center(
-              child: Text("Tab1"),
-            ),
-            Center(
-              child: Text("Tab2"),
-            ),
-            Center(
-              child: Text("Tab3"),
-            ),
-            Center(
-              child: Text("Tab4"),
-            ),
-          ]),
-        ),
+          Text(
+            (selectedPerson != null) ? selectedPerson.name : "Not Selected",
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+        ],
       ),
     );
   }
+}
+
+class Person {
+  String name;
+
+  Person(this.name);
 }

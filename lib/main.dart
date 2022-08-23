@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
@@ -10,70 +9,29 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: MainPage(),
     );
   }
 }
 
-class MainPage extends StatefulWidget {
+class MainPage extends StatelessWidget {
   const MainPage({Key key}) : super(key: key);
-
-  @override
-  State<MainPage> createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
-  Person selectedPerson;
-  List<Person> persons = [Person("Taufan"), Person("Evita")];
-
-  List<DropdownMenuItem> generatedItems(List<Person> persons) {
-    List<DropdownMenuItem> items = [];
-
-    for (var item in persons) {
-      items.add(DropdownMenuItem(
-        value: item,
-        child: Text(item.name),
-      ));
-    }
-
-    return items;
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff1e252d),
       appBar: AppBar(
-        title: const Text("Dropdown Button"),
+        backgroundColor: const Color(0xff282f37),
+        title: const Text("Google Fonts"),
       ),
-      body: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.all(20),
-            child: DropdownButton(
-              isExpanded: true,
-              style: const TextStyle(fontSize: 20, color: Colors.purple),
-              value: selectedPerson,
-              items: generatedItems(persons),
-              onChanged: (value) {
-                setState(() {
-                  selectedPerson = value;
-                });
-              },
-            ),
-          ),
-          Text(
-            (selectedPerson != null) ? selectedPerson.name : "Not Selected",
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-        ],
+      body: const Center(
+        child: Text(
+          "I'll keep learning Flutter!",
+          style: TextStyle(color: Color(0xffffb401)),
+        ),
       ),
     );
   }
-}
-
-class Person {
-  String name;
-
-  Person(this.name);
 }

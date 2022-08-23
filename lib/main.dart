@@ -26,6 +26,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFEEEEEE),
       body: Stack(
         children: [
           Positioned(
@@ -43,8 +44,8 @@ class MainPage extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: -getBigDiameter(context) / 4,
-            top: -getBigDiameter(context) / 4,
+            left: -getSmallDiameter(context) / 4,
+            top: -getSmallDiameter(context) / 4,
             child: Container(
               width: getBigDiameter(context),
               height: getBigDiameter(context),
@@ -65,6 +66,70 @@ class MainPage extends StatelessWidget {
               ),
             ),
           ),
+          Positioned(
+            right: -getBigDiameter(context) / 2,
+            bottom: -getBigDiameter(context) / 2,
+            child: Container(
+              width: getBigDiameter(context),
+              height: getBigDiameter(context),
+              decoration: const BoxDecoration(
+                  shape: BoxShape.circle, color: Color(0xFFF3E9EE)),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: ListView(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(5)),
+                  margin: const EdgeInsets.fromLTRB(20, 300, 20, 10),
+                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 25),
+                  child: Column(
+                    children: const [
+                      TextField(
+                        decoration: InputDecoration(
+                            icon: Icon(
+                              Icons.email,
+                              color: Color(0xffff4891),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Color(0xffff4891))),
+                            labelText: "Email: ",
+                            labelStyle: TextStyle(color: Color(0xffff4891))),
+                      ),
+                      TextField(
+                        obscureText: true,
+                        decoration: InputDecoration(
+                            icon: Icon(
+                              Icons.vpn_key,
+                              color: Color(0xffff4891),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Color(0xffff4891))),
+                            labelText: "Password: ",
+                            labelStyle: TextStyle(color: Color(0xffff4891))),
+                      ),
+                    ],
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Container(
+                    margin: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+                    child: const Text(
+                      "FORGOT PASSWORD?",
+                      style: TextStyle(color: Color(0xffff4891), fontSize: 11),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          )
         ],
       ),
     );

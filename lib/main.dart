@@ -36,15 +36,18 @@ class MainPage extends StatelessWidget {
             return const SecondPage();
           }));
         },
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(50),
-          child: Container(
-              width: 100,
-              height: 100,
-              child: const Image(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(
-                      "https://inikpop.com/wp-content/uploads/2022/05/Rose-thumbnail.png"))),
+        child: Hero(
+          tag: 'profile',
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(50),
+            child: Container(
+                width: 100,
+                height: 100,
+                child: const Image(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(
+                        "https://inikpop.com/wp-content/uploads/2022/05/Rose-thumbnail.png"))),
+          ),
         ),
       ),
     );
@@ -66,15 +69,18 @@ class SecondPage extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(100),
-          child: Container(
-              width: 200,
-              height: 200,
-              child: const Image(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(
-                      "https://inikpop.com/wp-content/uploads/2022/05/Rose-thumbnail.png"))),
+        child: Hero(
+          tag: 'profile',
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(100),
+            child: Container(
+                width: 200,
+                height: 200,
+                child: const Image(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(
+                        "https://inikpop.com/wp-content/uploads/2022/05/Rose-thumbnail.png"))),
+          ),
         ),
       ),
     );

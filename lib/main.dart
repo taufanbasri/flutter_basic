@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
@@ -11,40 +10,32 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-          textTheme: GoogleFonts.srirachaTextTheme()
-              .copyWith(bodyText1: GoogleFonts.modak())),
-      home: const MainPage(),
-    );
-  }
-}
-
-class MainPage extends StatelessWidget {
-  const MainPage({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    const fontcolor = Color(0xffffb401);
-
-    return Scaffold(
-      backgroundColor: const Color(0xff1e252d),
-      appBar: AppBar(
-        backgroundColor: const Color(0xff282f37),
-        title: const Text("Google Fonts"),
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            Text(
-              "I'll keep learning Flutter!",
-              style: GoogleFonts.lato(color: fontcolor, fontSize: 25),
-            ),
-            Text("Hello World!",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText1
-                    .copyWith(color: fontcolor, fontSize: 25))
-          ],
+      home: Scaffold(
+        appBar: AppBar(title: const Text("New Button Style")),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.orange, onPrimary: Colors.white),
+                onPressed: () {},
+                child: const Text("Raised Button"),
+              ),
+              TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(primary: Colors.blue),
+                child: const Text("Flat Button"),
+              ),
+              OutlinedButton(
+                onPressed: () {},
+                style: OutlinedButton.styleFrom(
+                    primary: Colors.amber,
+                    side: const BorderSide(color: Colors.amber)),
+                child: const Text("Outline Button"),
+              )
+            ],
+          ),
         ),
       ),
     );
